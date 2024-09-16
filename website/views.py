@@ -1,6 +1,7 @@
 from flask import Blueprint, render_template, request, redirect, url_for, flash
 import re
 import pandas as pd
+from flask_login import login_required, current_user
 # import pyttsx3
 from sklearn import preprocessing
 from sklearn.tree import DecisionTreeClassifier, _tree
@@ -54,8 +55,8 @@ views = Blueprint('views', __name__)
 
 # global sentence
 warnings.filterwarnings("ignore", category=DeprecationWarning)
-training = pd.read_csv('C:\\Users\MSI\Desktop\\bot chat\website\Data\Training.csv')
-testing = pd.read_csv('C:\\Users\MSI\Desktop\\bot chat\website\Data\Testing.csv')
+training = pd.read_csv('website/Data/Training.csv')
+testing = pd.read_csv('website/Data/Testing.csv')
 cols = training.columns
 cols = cols[:-1]
 x = training[cols]
@@ -129,7 +130,7 @@ def calc_condition():
 
 def getDescription():
     global description_list
-    with open('C:\\Users\MSI\Desktop\\bot chat\website\MasterData\symptom_Description.csv') as csv_file:
+    with open('website/MasterData/symptom_Description.csv') as csv_file:
         csv_reader = csv.reader(csv_file, delimiter=',')
         # line_count = 0
         for row in csv_reader:
@@ -139,7 +140,7 @@ def getDescription():
 
 def getSeverityDict():
     global severityDictionary
-    with open('C:\\Users\MSI\Desktop\\bot chat\website\MasterData\Symptom_severity.csv') as csv_file:
+    with open('website/MasterData/Symptom_severity.csv') as csv_file:
 
         csv_reader = csv.reader(csv_file, delimiter=',')
         # line_count = 0
@@ -153,7 +154,7 @@ def getSeverityDict():
 
 def getprecautionDict():
     global precautionDictionary
-    with open('C:\\Users\MSI\Desktop\\bot chat\website\MasterData\symptom_precaution.csv') as csv_file:
+    with open('website/MasterData/symptom_precaution.csv') as csv_file:
         csv_reader = csv.reader(csv_file, delimiter=',')
         # line_count = 0
         for row in csv_reader:
@@ -183,7 +184,7 @@ def check_pattern(dis_list, inp):
 
 
 def sec_predict(symptom_exp):
-    df = pd.read_csv('C:\\Users\MSI\Desktop\\bot chat\website\Data\Training.csv')
+    df = pd.read_csv('website/Data/Training.csv')
     X = df.iloc[:, :-1]
     y = df['prognosis']
     X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3, random_state=20)
@@ -552,6 +553,7 @@ sentence: list = getInfo()
 
 @views.route('/')
 @views.route('home')
+@login_required
 def home():
     # if request.method == 'POST':
     #     user_message = request.form.get('user')
@@ -627,8 +629,9 @@ def home():
             rev = [items[i] for i in range(-(len(items)), 0, 1)]
     else:
         rev = []
+    username = current_user.username
     # print("reverse: ", rev)
-    return render_template("home.html", sentence=sentence, items=rev, var=var)
+    return render_template("home.html", sentence=sentence, items=rev, var=var, username=username)
 
 
 @views.route('chat', methods=['POST', 'GET'])

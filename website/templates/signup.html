@@ -6,12 +6,12 @@
 {% block content %}
     <section class="cta-main-login">
         <div class="cta-form">
-            <div class="cta-img"><img src="./img/user.png" alt=""></div>
+            <div class="cta-img"><img src="/website/static/img/user.png" alt="user.png"></div>
             <h1>PRE - DOC</h1>
             <a href="{{ url_for('auth.login') }}">Already have Account ?</a>
             <form method="post">
                 <input type="text" placeholder="Create your username" name="username" id="username" required><br>
-                <input type="email" placeholder="Enter your username" name="email" id="Email" required><br>
+                <input type="email" placeholder="Enter your email" name="email" id="Email" required><br>
                 <input type="password" placeholder="Create your password" name="password" id="password" required><br><br>
                 <button id="login-button" >SignUp</button>
             </form>
