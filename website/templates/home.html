@@ -11,7 +11,7 @@
                 <img src="{{ url_for('static', filename='img/logo.svg') }}" alt="">
             </div>
             <div class="cta-account">
-                <h4>Ratheesh R</h4>
+                <h4>{{ username }}</h4>
                 <p>Free account</p>
             </div>
         </div>
@@ -26,9 +26,9 @@
             <ul class="bottom-menu">
                 <a onclick="return confirm('Are you sure you wanna delete all conversations?');" href="{{ url_for('views.clear') }}"><li>Clear all conversations</li></a>
                 <li id="toggle-dark-mode">Switch Light Mode</li>
-                <li><a href="{{ url_for('upgrade.home2') }}">Upgrade to PreDoc Pro</a></li>
+                <li><a href="">Upgrade to PreDoc Pro</a></li>
                 <li>Updates & FAQ</li>
-                <li><a href="">Log out</a></li>
+                <li><a href="{{ url_for('auth.logout') }}">Log out</a></li>
             </ul>
         </div>
     </nav>
