@@ -8,7 +8,7 @@
     <nav>
         <div class="cta-nav">
             <div class="cta-logo">
-                <img src="{{ url_for('static', filename='img/logo.svg') }}" alt="">
+                <img src="{{ url_for('static', filename='img/logo.svg') }}" alt="logo.svg">
             </div>
             <div class="cta-account">
                 <h4>{{ username }}</h4>
@@ -39,14 +39,14 @@
         {% if items %}
             {% for item in items %}
                     <div class="cta-bot-message">
-                        <img src="{{ url_for('static', filename='img/robot.png') }}" alt="">
+                        <img src="{{ url_for('static', filename='img/robot.png') }}" alt="robot.png">
                         <p>{{ item.bot }}</p>
 
                     </div>
                     <div class="cta-user-message">
 
                         <p>{{ item.user }}</p>
-                         <img src="{{ url_for('static', filename='img/user.png') }}" id="last-message" alt="">
+                         <img src="{{ url_for('static', filename='img/user.png') }}" id="last-message" alt="user.png">
                     </div>
             {% endfor %}
         {% else %}

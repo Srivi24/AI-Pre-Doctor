@@ -6,7 +6,7 @@
 {% block content %}
     <section class="cta-main-login">
         <div class="cta-form">
-            <div class="cta-img"><img src="./img/user.png" alt=""></div>
+            <div class="cta-img"><img src="{{ url_for('static', filename='img/user.png') }}" alt="user.png"></div>
             <h1>PRE - DOC</h1>
             <a href="{{ url_for('auth.signup') }}">New User ?</a>
             <form method="post">
