@@ -63,21 +63,31 @@ The **Flask** framework powers the web interface, providing a seamless interacti
 
 ## Installation and Setup
 
-1. Clone the repository:
+1. We are using [Python 3.9.6](https://www.python.org/downloads/release/python-396/)
+   ```bash
+   python -V
+   pip -V
+   ```
+2. Clone the repository:
    ```bash
    git clone https://github.com/Srivi24/AI-Pre-Doctor.git
    ```
-2. Navigate to the project directory:
+3. Navigate to the project directory:
    ```bash
    cd AI-Pre-Doctor
    ```
-3. Install dependencies:
+4. To create and activate the virtual environment in Windows:
+   ```bash
+   python -m venv .venv
+   .venv/Scripts/activate
+   ```
+5. Install dependencies:
    ```bash
    pip install -r requirements.txt
    ```
-4. Run the Flask app:
+6. Run the Flask app:
    ```bash
-   flask run
+   python main.py
    ```
 
 ## Usage
