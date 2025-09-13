@@ -75,7 +75,7 @@
         {% endif %}
     </div><br>
     <div class="form-container">
-        <form action="{{ url_for('views.chat') }}" method="post">
+        <form id="chatForm" action="{{ url_for('views.chat') }}" method="post">
             {% if var == "last" %}
             <div class="cta-bot-message cta-current-message" ><label for="name">{{ sentence[0] }}</label></div>
                 <input type="text" id="name" class="input-field" name="user"  placeholder="Do you wanna continue?(YES/NO)" autofocus required>
@@ -96,6 +96,10 @@
             messages.scrollTop = messages.scrollHeight;
         }
     };
+
+    // document.getElementById("chatForm").addEventListener('submit', function(event) {
+    //     event.preventDefault();
+    // });
     </script>
 {% endblock %}
 {% endblock %}
