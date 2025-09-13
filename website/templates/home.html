@@ -25,9 +25,9 @@
         <div class="cta-nav-bottom">
             <ul class="bottom-menu">
                 <a onclick="return confirm('Are you sure you wanna delete all conversations?');" href="{{ url_for('views.clear') }}"><li>Clear all conversations</li></a>
-                <li id="toggle-dark-mode">Switch Light Mode</li>
-                <li><a href="">Upgrade to PreDoc Pro</a></li>
-                <li>Updates & FAQ</li>
+                <li id="toggle-dark-mode" class="not_available" title="Feature not available at the moment">Switch Light Mode</li>
+                <li class="not_available" title="Feature not available at the moment">Upgrade to PreDoc Pro</li>
+                <li class="not_available" title="Feature not available at the moment">Updates & FAQ</li>
                 <li><a href="{{ url_for('auth.logout') }}">Log out</a></li>
             </ul>
         </div>

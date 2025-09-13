@@ -242,8 +242,8 @@ form{
 }
 
 .cta-message {
-            height: 70vh; /* Set the height to 80% of the viewport height */
-            overflow-y: scroll; /* Add a vertical scrollbar when content overflows */
+            height: 70vh;
+            overflow-y: scroll;
         }
   /* Style for the scroll bar */
   ::-webkit-scrollbar {
@@ -326,8 +326,8 @@ margin-top:100px !important;
     line-height: 150%; /* 24px */
 }
 input[type="text"]::selection {
-  background: #your-selected-background-color; /* Change the background color for selected text */
-  color: #your-selected-text-color; /* Change the text color for selected text */
+  background: green; 
+  color: yellow;
 }
 
 
@@ -447,4 +447,9 @@ input[type="text"]::selection {
 }
 .cta-main-login .cta-form a:hover {
   color: #019A5A;
+}
+
+.not_available {
+  color: gray;
+  cursor: pointer;
 }

@@ -77,7 +77,7 @@ The **Flask** framework powers the web interface, providing a seamless interacti
    ```
 4. Run the Flask app:
    ```bash
-   flask run
+   python main.py
    ```
 
 ## Usage
